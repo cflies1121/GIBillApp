@@ -28,22 +28,6 @@ public class home_calc extends AppCompatActivity {
     TextView answerText;
 
 
-    public static void array123(String[] args) {
-
-        int arrInt[] = new int[99999];
-        {
-            arrInt[0] = 1;
-
-            int i = 1;
-            while (i <= 99999) {
-                arrInt[i] = i + i;
-                i++;
-            }
-
-        }
-
-    }
-
     public void addListenerOnImageButton() {
 
         imageButton2 = (ImageButton) findViewById(R.id.uberbutton);
