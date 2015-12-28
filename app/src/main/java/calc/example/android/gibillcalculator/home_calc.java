@@ -63,15 +63,7 @@ public class home_calc extends AppCompatActivity {
 
                                            inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
                                                    InputMethodManager.HIDE_NOT_ALWAYS);
-
-                                           //this is where the csv stuff begins --->
-                                           //InputStream inputStream = getResources().openRawResource(R.raw.zip_code);
-                                           //CSVFile csvFile = new CSVFile(inputStream);
-                                           // List zip_code_var = csvFile.read();
-
-                                           //<---and ends
-
-
+                                           
                                            //I think these ones just assign the variables to the view that they are assigned
 
                                            q1Edit = (EditText) findViewById(R.id.bah);
