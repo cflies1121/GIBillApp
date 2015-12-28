@@ -63,7 +63,7 @@ public class home_calc extends AppCompatActivity {
 
                                            inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
                                                    InputMethodManager.HIDE_NOT_ALWAYS);
-                                           
+
                                            //I think these ones just assign the variables to the view that they are assigned
 
                                            q1Edit = (EditText) findViewById(R.id.bah);
@@ -391,28 +391,5 @@ public class home_calc extends AppCompatActivity {
 
         );
     }
-
-
-    //  @Override
-    // public boolean onCreateOptionsMenu(Menu menu) {
-    // Inflate the menu; this adds items to the action bar if it is present.
-    //    getMenuInflater().inflate(R.menu.menu_home_calc, menu);
-    //   return true;
-    // }
-
-    //@Override
-    //public boolean onOptionsItemSelected(MenuItem item) {
-    // Handle action bar item clicks here. The action bar will
-    // automatically handle clicks on the Home/Up button, so long
-    // as you specify a parent activity in AndroidManifest.xml.
-    //int id = item.getItemId();
-
-    //noinspection SimplifiableIfStatement
-    // if (id == R.id.action_settings) {
-    //    answerText.setText("Reset");
-    //     return true;
-    // }
-
-    // return super.onOptionsItemSelected(item);
 }
 
