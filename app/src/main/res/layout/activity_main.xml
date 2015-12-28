@@ -49,29 +49,6 @@
         android:layout_weight="1.5"
         android:background="@drawable/lyftaddriver"
         android:scaleType="fitXY" />
-    <!--<ImageButton
-        android:layout_width="match_parent"
-        android:layout_height="120sp"
-
-        android:background="@drawable/uberad"
-
-        android:id="@+id/uberbutton"
-        android:layout_marginBottom="@dimen/activity_vertical_margin"/>-->
-    <!--
-    this is the ad from google I took it out because it
-    does not seem to be working very well and instead
-    am using the lyft uber luxe ads that I am creating
-    because they pay better.
-
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        ads:adSize="BANNER"
-        ads:adUnitId="@string/banner_ad_unit_id">
-    </com.google.android.gms.ads.AdView>-->
-
+    
 
 </LinearLayout>
