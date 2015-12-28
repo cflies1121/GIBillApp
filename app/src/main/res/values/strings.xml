@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">GI Bill Calculator</string>
+
+    <string name="welcome">Welcome!!</string>
+    <string name="action_settings">Settings</string>
+    <string name="legal_speak">By pushing Accept/Enter you are agreeing that the GI Bill Calculator is not affiliated with the Department of Veterans Affairs and that only amounts given from the Veterans Affairs offices should be used as official. For questions regarding VA benefits and or amounts please call 1(888) 442 4551. For any issues with the calculator or app please send an email to thegibillcalculator@gmail.com. Thank you!!</string>
+    <string name="title_activity_home_calc">home_calc</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="reset">Reset Calculations.</string>
+    <string name="instructions">Please make the appropriate selections. All fields must be filled.</string>
+    <string name="q1">What is the Bah for the schools zip code?</string>
+    <string name="q2">How many credits do you plan on taking?</string>
+    <string name="numbcredprompt">How many credits do you plan on taking?</string>
+    <string name="c12">1</string>
+    <string name="c11">2</string>
+    <string name="c10">3</string>
+    <string name="c9">4</string>
+    <string name="c8">5</string>
+    <string name="c7">6</string>
+    <string name="c6">7</string>
+    <string name="c5">8</string>
+    <string name="c4">9</string>
+    <string name="c3">10</string>
+    <string name="c2">11</string>
+    <string name="c1">12</string>
+    // extra numbers for the weeks list
+    <string name="ca6">13</string>
+    <string name="ca5">14</string>
+    <string name="ca4">15</string>
+    <string name="ca3">16</string>
+    <string name="ca2">17</string>
+    <string name="ca1">18</string>
+    //start of percent list
+    <string name="p10">10</string>
+    <string name="p9">20</string>
+    <string name="p8">30</string>
+    <string name="p7">40</string>
+    <string name="p6">50</string>
+    <string name="p5">60</string>
+    <string name="p4">70</string>
+    <string name="p3">80</string>
+    <string name="p2">90</string>
+    <string name="p1">100</string>
+    <string name="percentprompt">At what percentage of the GI Bill does the VA give you?</string>
+    <string name="cl1">Semester</string>
+    <string name="cl2">Quarter</string>
+    <string name="cl">Semester or Quarter system?</string>
+    <string name="weeks">How many weeks is your term?</string>
+    <string name="calculate">Calculate!</string>
+    <string name="banner_ad_unit_id">ca-app-pub-3466818873118548/4553771311</string>
+
+
+</resources>
