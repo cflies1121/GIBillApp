@@ -23,9 +23,21 @@ import java.util.List;
 public class home_calc extends AppCompatActivity {
 
 
-    EditText q1Edit;
+    EditText q1Edit = (EditText) findViewById(R.id.bah);
     ImageButton imageButton2;
-    TextView answerText;
+    TextView answerText = (TextView) findViewById(R.id.amount);
+    long q1EditVar = Long.parseLong(q1Edit.getText().toString());
+    Spinner q5spinner = (Spinner) findViewById(R.id.weeksspinner);
+    int q5spinnerVar = Integer.parseInt(q5spinner.getSelectedItem().toString());
+    Spinner q2spinner = (Spinner) findViewById(R.id.spinnerCredits);
+    long q2spinnerVar = Long.parseLong(q2spinner.getSelectedItem().toString());
+    Spinner q3spinner = (Spinner) findViewById(R.id.spinnerPercent);
+    float q3spinnerVar = Float.parseFloat(q3spinner.getSelectedItem().toString());
+    Spinner q4spinner = (Spinner) findViewById(R.id.Spinnercl);
+    String q4spinnerVar = q4spinner.getSelectedItem().toString();
+
+
+
 
 
     public void addListenerOnImageButton() {
@@ -44,6 +56,18 @@ public class home_calc extends AppCompatActivity {
         });
 
     }
+
+    public int calculation() {
+        int calculationresult = 0;
+        DecimalFormat form = new DecimalFormat("0.00");
+        if (q4spinnerVar == "Semester") {
+            calculationresult = 13;
+        }
+
+        return calculationresult;
+
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,324 +88,16 @@ public class home_calc extends AppCompatActivity {
                                            inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
                                                    InputMethodManager.HIDE_NOT_ALWAYS);
 
-                                           //I think these ones just assign the variables to the view that they are assigned
 
-                                           q1Edit = (EditText) findViewById(R.id.bah);
 
-                                           answerText = (TextView) findViewById(R.id.amount);
+
 
                                            try {
-                                               //all of the int's are just changing the spinners and edit texts to values that java can understand. q3spinner has to be a float.
-                                               long q1EditVar = Long.parseLong(q1Edit.getText().toString());
 
-                                               Spinner q5spinner = (Spinner) findViewById(R.id.weeksspinner);
-                                               int q5spinnerVar = Integer.parseInt(q5spinner.getSelectedItem().toString());
-                                               Spinner q2spinner = (Spinner) findViewById(R.id.spinnerCredits);
-                                               long q2spinnerVar = Long.parseLong(q2spinner.getSelectedItem().toString());
-                                               Spinner q3spinner = (Spinner) findViewById(R.id.spinnerPercent);
-                                               float q3spinnerVar = Float.parseFloat(q3spinner.getSelectedItem().toString());
-                                               Spinner q4spinner = (Spinner) findViewById(R.id.Spinnercl);
-                                               String q4spinnerVar = q4spinner.getSelectedItem().toString();
-
-                                               // insert a spinner for q5edit question to make app better
-                                               DecimalFormat form = new DecimalFormat("0.00");
-
+                                               //this is the method that I am going to try to use
+                                               answerText.setText(calculation());
 
                                                //source for semester equation http://www.sunyacc.edu/sites/default/files/images/va_semester_equivalency_hours_chart.pdf
-
-                                               if (q1EditVar == -100) {
-                                                   answerText.setText("Please enter proper Zip Code.");
-                                               } else if (q1EditVar == -200) {
-                                                   answerText.setText("Please email thegibillcalculator@gmail.com to add zip");
-                                               } else if (q4spinnerVar.equals("Semester")) {
-                                                   if (q5spinnerVar >= 15) {
-                                                       if (q2spinnerVar == 12) {
-                                                           answerText.setText("$ " + (form.format(q1EditVar * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 11) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.90) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 10) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.80) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 9) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.80) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 8) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.70) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 7) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.60) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar <= 6) {
-                                                           answerText.setText("$0");
-                                                       }
-                                                   } else if (q5spinnerVar == 14) {
-                                                       if (q2spinnerVar >= 10) {
-                                                           answerText.setText("$ " + (form.format(q1EditVar * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 9) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.90) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 8) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.80) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 7) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.70) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 6) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.60) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar <= 5) {
-                                                           answerText.setText("$0");
-                                                       }
-                                                   } else if (q5spinnerVar == 13) {
-                                                       if (q2spinnerVar >= 9) {
-                                                           answerText.setText("$ " + (form.format(q1EditVar * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 8) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.90) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 7) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.80) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 6) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.70) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 5) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.60) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar <= 4) {
-                                                           answerText.setText("$0");
-                                                       }
-                                                   } else if (q5spinnerVar == 12) {
-                                                       if (q2spinnerVar >= 8) {
-                                                           answerText.setText("$ " + (form.format(q1EditVar * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 7) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.90) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 6) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.80) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 5) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.60) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar <= 4) {
-                                                           answerText.setText("$0");
-                                                       }
-                                                   } else if (q5spinnerVar == 11) {
-                                                       if (q2spinnerVar >= 8) {
-                                                           answerText.setText("$ " + (form.format(q1EditVar * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 7) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.90) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 6) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.80) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 5) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.60) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar <= 4) {
-                                                           answerText.setText("$0");
-                                                       }
-                                                   } else if (q5spinnerVar == 10) {
-                                                       if (q2spinnerVar >= 7) {
-                                                           answerText.setText("$ " + (form.format(q1EditVar * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 6) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.90) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 5) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.70) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 4) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.60) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar <= 3) {
-                                                           answerText.setText("$0");
-                                                       }
-                                                   } else if (q5spinnerVar == 9) {
-                                                       if (q2spinnerVar >= 6) {
-                                                           answerText.setText("$ " + (form.format(q1EditVar * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 5) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.80) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 4) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.70) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar <= 3) {
-                                                           answerText.setText("$0");
-                                                       }
-                                                   } else if (q5spinnerVar == 8) {
-                                                       if (q2spinnerVar >= 6) {
-                                                           answerText.setText("$ " + (form.format(q1EditVar * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 5) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.80) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 4) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.70) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar <= 3) {
-                                                           answerText.setText("$0");
-                                                       }
-                                                   } else if (q5spinnerVar == 7) {
-                                                       if (q2spinnerVar >= 5) {
-                                                           answerText.setText("$ " + (form.format(q1EditVar * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 4) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.80) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 3) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.60) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar <= 2) {
-                                                           answerText.setText("$0");
-                                                       }
-                                                   } else if (q5spinnerVar == 6) {
-                                                       if (q2spinnerVar >= 4) {
-                                                           answerText.setText("$ " + (form.format(q1EditVar * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 3) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.80) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar <= 2) {
-                                                           answerText.setText("$0");
-                                                       }
-                                                   } else if (q5spinnerVar == 5) {
-                                                       if (q2spinnerVar >= 4) {
-                                                           answerText.setText("$ " + (form.format(q1EditVar * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 3) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.80) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar <= 2) {
-                                                           answerText.setText("$0");
-                                                       }
-
-                                                   } else if (q5spinnerVar == 4) {
-                                                       if (q2spinnerVar >= 3) {
-                                                           answerText.setText("$ " + (form.format(q1EditVar * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 2) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.70) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar <= 1) {
-                                                           answerText.setText("$0");
-                                                       }
-                                                   } else if (q5spinnerVar == 3) {
-                                                       if (q2spinnerVar >= 2) {
-                                                           answerText.setText("$ " + (form.format(q1EditVar * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar <= 1) {
-                                                           answerText.setText("$0");
-                                                       }
-                                                   } else if (q5spinnerVar == 2) {
-                                                       if (q2spinnerVar >= 2) {
-                                                           answerText.setText("$ " + (form.format(q1EditVar * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar <= 1) {
-                                                           answerText.setText("$0");
-                                                       }
-                                                   } else if (q5spinnerVar == 1) {
-                                                       if (q2spinnerVar >= 1) {
-                                                           answerText.setText("$ " + (form.format(q1EditVar * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar < 1) {
-                                                           answerText.setText("$0");
-                                                       }
-                                                   }
-                                                   //everything that follows is for quarter based, essentially same equations as above
-                                               } else if (q4spinnerVar.equals("Quarter")) {
-                                                   if (q5spinnerVar >= 11) {
-                                                       if (q2spinnerVar >= 12) {
-                                                           answerText.setText("$ " + (form.format(q1EditVar * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 11) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.90) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 10) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.80) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 9) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.80) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 8) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.70) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 7) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.60) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar <= 6) {
-                                                           answerText.setText("$0");
-                                                       }
-                                                   } else if (q5spinnerVar == 10) {
-                                                       if (q2spinnerVar >= 10) {
-                                                           answerText.setText("$ " + (form.format(q1EditVar * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 9) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.90) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 8) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.80) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 7) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.70) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 6) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.60) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar <= 5) {
-                                                           answerText.setText("$0");
-                                                       }
-                                                   } else if (q5spinnerVar == 9) {
-                                                       if (q2spinnerVar >= 9) {
-                                                           answerText.setText("$ " + (form.format(q1EditVar * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 8) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.90) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 7) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.80) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 6) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.70) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 5) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.60) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar <= 4) {
-                                                           answerText.setText("$0");
-                                                       }
-                                                   } else if (q5spinnerVar == 8) {
-                                                       if (q2spinnerVar >= 8) {
-                                                           answerText.setText("$ " + (form.format(q1EditVar * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 7) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.90) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 6) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.80) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 5) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.60) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar <= 4) {
-                                                           answerText.setText("$0");
-                                                       }
-                                                   } else if (q5spinnerVar == 7) {
-                                                       if (q2spinnerVar >= 8) {
-                                                           answerText.setText("$ " + (form.format(q1EditVar * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 7) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.90) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 6) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.80) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 5) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.60) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar <= 4) {
-                                                           answerText.setText("$0");
-                                                       }
-                                                   } else if (q5spinnerVar == 6) {
-                                                       if (q2spinnerVar >= 7) {
-                                                           answerText.setText("$ " + (form.format(q1EditVar * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 6) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.90) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 5) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.70) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 4) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.60) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar <= 3) {
-                                                           answerText.setText("$0");
-                                                       }
-                                                   } else if (q5spinnerVar == 5) {
-                                                       if (q2spinnerVar >= 6) {
-                                                           answerText.setText("$ " + (form.format(q1EditVar * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 5) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.80) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 4) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.70) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar <= 3) {
-                                                           answerText.setText("$0");
-                                                       }
-                                                   } else if (q5spinnerVar == 4) {
-                                                       if (q2spinnerVar >= 6) {
-                                                           answerText.setText("$ " + (form.format(q1EditVar * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 5) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.80) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 4) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.70) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar <= 3) {
-                                                           answerText.setText("$0");
-                                                       }
-                                                   } else if (q5spinnerVar == 3) {
-                                                       if (q2spinnerVar >= 5) {
-                                                           answerText.setText("$ " + (form.format(q1EditVar * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 4) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.80) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 3) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.60) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar <= 2) {
-                                                           answerText.setText("$0");
-                                                       }
-                                                   } else if (q5spinnerVar == 2) {
-                                                       if (q2spinnerVar >= 4) {
-                                                           answerText.setText("$ " + (form.format(q1EditVar * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 3) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.80) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar <= 2) {
-                                                           answerText.setText("$0");
-                                                       }
-                                                   } else if (q5spinnerVar == 1) {
-                                                       if (q2spinnerVar >= 4) {
-                                                           answerText.setText("$ " + (form.format(q1EditVar * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar == 3) {
-                                                           answerText.setText("$ " + (form.format((q1EditVar * 0.80) * (q3spinnerVar / 100))));
-                                                       } else if (q2spinnerVar <= 2) {
-                                                           answerText.setText("$0");
-                                                       }
-
-                                                   }
-
-
-                                               }
-
 
                                            } catch (NumberFormatException nfe) {
                                                answerText.setText("Answer all Questions");
