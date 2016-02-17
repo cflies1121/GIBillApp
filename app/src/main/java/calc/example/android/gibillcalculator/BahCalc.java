@@ -9,7 +9,7 @@ import java.text.DecimalFormat;
  */
 public class BahCalc {
 
-    public void calc(long q1EditVar, long q2spinnerVar, float q3spinnerVar, String q4spinnerVar, int q5spinnerVar, DecimalFormat form, TextView answerText) {
+    public void calc(double q1EditVar, long q2spinnerVar, float q3spinnerVar, String q4spinnerVar, int q5spinnerVar, DecimalFormat form, TextView answerText) {
         //source for semester equation http://www.sunyacc.edu/sites/default/files/images/va_semester_equivalency_hours_chart.pdf
 
         if (q1EditVar == -100) {

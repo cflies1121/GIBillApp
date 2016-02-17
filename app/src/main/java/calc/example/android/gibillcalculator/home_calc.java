@@ -74,7 +74,7 @@ public class home_calc extends AppCompatActivity {
                                            try {
                                                //all of the int's are just changing the spinners and edit texts to values that java can understand. q3spinner has to be a float.
                                                //FOR SOME REASON THESE CANNOT BE MOVED UP TO THE TOP OUT OF THE TRY STATEMENT.
-                                               long q1EditVar = Long.parseLong(q1Edit.getText().toString());
+                                               String q1EditVar = q1Edit.getText().toString();
 
                                                Spinner q5spinner = (Spinner) findViewById(R.id.weeksspinner);
                                                int q5spinnerVar = Integer.parseInt(q5spinner.getSelectedItem().toString());//change to a string
@@ -88,17 +88,19 @@ public class home_calc extends AppCompatActivity {
                                                // insert a spinner for q5edit question to make app better
                                                DecimalFormat form = new DecimalFormat("0.00");
 
-                                               //try {
-                                               //Zipcalc zipcalculation = new Zipcalc();//figure out how to throw the exception
-                                               //String mha = zipcalculation.readZiptoMha("93725");
-                                               //String bah = zipcalculation.readBahAmount(mha);
+                                               try {
+                                                   Zipcalc zipcalculation = new Zipcalc();
+                                                   String mha = zipcalculation.readZiptoMha(q1EditVar);
+                                                   String bah = zipcalculation.readBahAmount(mha);
+                                                   double bahNumber = Double.parseDouble(bah);
                                                BahCalc bahPrinttoScreen = new BahCalc();
-                                               bahPrinttoScreen.calc(q1EditVar, q2spinnerVar, q3spinnerVar, q4spinnerVar, q5spinnerVar, form, answerText);
+                                                   bahPrinttoScreen.calc(bahNumber, q2spinnerVar, q3spinnerVar, q4spinnerVar, q5spinnerVar, form, answerText);
 
 
-                                               //} catch (FileNotFoundException fnfe){//// these are still needed to move foward just took out to test program
-                                               //answerText.setText("the file is not found");
-                                               //}
+                                               } catch (FileNotFoundException fnfe) {
+                                                   System.out.println(fnfe);
+                                                   fnfe.printStackTrace();
+                                               }
                                            } catch (NumberFormatException nfe) {
                                                answerText.setText("Answer all Questions");
                                            }

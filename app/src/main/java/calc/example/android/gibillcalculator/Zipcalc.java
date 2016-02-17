@@ -1,5 +1,7 @@
 package calc.example.android.gibillcalculator;
 
+import android.content.res.AssetManager;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -22,7 +24,8 @@ public class Zipcalc {
      * @throws FileNotFoundException
      */
     public String readZiptoMha(String zipCode) throws FileNotFoundException {
-        Scanner read = new Scanner(new File("src/res/sorted_zipmha16.txt"));
+        //File file = AssetManager.AssetInputStream{new File ("raw/sorted_zipmha16.txt");}
+        Scanner read = new Scanner("/raw/sorted_zipmha16.txt");
         read.useDelimiter(",|\n");
         String zip, mha;
 
@@ -47,7 +50,8 @@ public class Zipcalc {
      */
     public String readBahAmount(String mHA) throws FileNotFoundException {
         //String zipString = Integer.toString(zipCode);
-        Scanner read = new Scanner(new File("src/res/bahw16.txt"));//creates a new scanner and reads from file
+        //File file = AssetManager.AssetInputStream{new File("res/bahw16.txt");}
+        Scanner read = new Scanner(new File("/res/bahw16.txt"));//creates a new scanner and reads from file
         read.useDelimiter(",|\n");//establishes that the , and new line are different values
         String mha;
         String e1, e2, e3, e4, e5, e6, e7, e8, e9, w1, w2, w3, w4, w5, o1e, o2e, o3e;
