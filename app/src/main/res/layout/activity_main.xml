@@ -42,13 +42,13 @@
         android:onClick="onClick"
         android:text="Accept/Enter" />
 
-    <ImageButton
-        android:id="@+id/lyftbutton"
-        android:layout_width="match_parent"
-        android:layout_height="0sp"
-        android:layout_weight="1.5"
-        android:background="@drawable/lyftaddriver"
-        android:scaleType="fitXY" />
+    <!--<ImageButton-->
+    <!--android:id="@+id/lyftbutton"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="0sp"-->
+    <!--android:layout_weight="1.5"-->
+    <!--android:background="@drawable/lyftaddriver"-->
+    <!--android:scaleType="fitXY" />-->
 
 
 </LinearLayout>

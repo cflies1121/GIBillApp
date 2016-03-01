@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //lyft ad button
-        addListenerOnButton();
+        // addListenerOnButton();
 
 
         final Button button = (Button) findViewById(R.id.accept);
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    //for lyft ad button
+    /*//for lyft ad button
     public void addListenerOnButton() {
 
         imageButton = (ImageButton) findViewById(R.id.lyftbutton);
@@ -55,8 +55,8 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
-
-    }
+*/
+    //}
 
     
 }

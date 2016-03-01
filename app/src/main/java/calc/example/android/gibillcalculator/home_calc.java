@@ -33,7 +33,7 @@ public class home_calc extends AppCompatActivity {
     InputStream is3;
 
 
-    public void addListenerOnImageButton() {
+   /* public void addListenerOnImageButton() {
 
         imageButton2 = (ImageButton) findViewById(R.id.uberbutton);
         imageButton2.setOnClickListener(new View.OnClickListener() {
@@ -48,14 +48,14 @@ public class home_calc extends AppCompatActivity {
 
         });
 
-    }
+    }*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_calc);
         setTitle("Gi Bill Calculator");
-        addListenerOnImageButton();
+        //addListenerOnImageButton();
 
 
 
