@@ -56,14 +56,7 @@ public class home_calc extends AppCompatActivity {
         setContentView(R.layout.activity_home_calc);
         setTitle("Gi Bill Calculator");
         addListenerOnImageButton();
-        try {
-            AssetManager assetManager = getAssets();
-            is = getAssets().open("bahw16.txt");
-            is2 = getAssets().open("mhanames16.txt");
-            is3 = getAssets().open("sorted_zipmha16.txt");
-        } catch (Exception e) {
-            System.out.println("exception in assetmanger area");
-        }
+
 
 
 
@@ -71,6 +64,15 @@ public class home_calc extends AppCompatActivity {
         button2.setOnClickListener(new View.OnClickListener() {
                                        // Perform action on click
                                        public void onClick(View v) {
+                                           try {
+                                               AssetManager assetManager = getAssets();
+                                               is = getAssets().open("bahw16.txt");
+                                               is2 = getAssets().open("mhanames16.txt");
+                                               is3 = getAssets().open("sorted_zipmha16.txt");
+                                           } catch (Exception e) {
+                                               System.out.println("exception in assetmanger area");
+                                           }
+
                                            // this makes the keyboard go away IT WORKS YAY!!!
                                            //InputMethodManager inputManager = (InputMethodManager)
                                            //        getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -98,19 +100,21 @@ public class home_calc extends AppCompatActivity {
                                                Spinner q4spinner = (Spinner) findViewById(R.id.Spinnercl);
                                                String q4spinnerVar = q4spinner.getSelectedItem().toString();
 
-                                               // insert a spinner for q5edit question to make app better
+                                               // insert a spinner for q5edit question to make app better//done
                                                DecimalFormat form = new DecimalFormat("0.00");
 
                                                try {
                                                    Zipcalc zipcalculation = new Zipcalc();
-                                                   String mha = zipcalculation.readZiptoMha(q1EditVar, is2);
+                                                   String mha = zipcalculation.readZiptoMha(q1EditVar, is3);
                                                    String bah = zipcalculation.readBahAmount(mha, is);
-                                                   System.out.println(mha);
-                                                   System.out.println(bah);
+                                                   //System.out.println(mha); debuging
+                                                   // System.out.println(bah); debuging
                                                    ////////////////////////////////////////
                                                    double bahNumber = Double.parseDouble(bah);
                                                    BahCalc bahPrinttoScreen = new BahCalc();
-                                                   bahPrinttoScreen.calc(bahNumber, q2spinnerVar, q3spinnerVar, q4spinnerVar, q5spinnerVar, form, answerText);
+                                                   //// turns the calculation into text then applies that text to answer text
+                                                   String text = (bahPrinttoScreen.calc(bahNumber, q2spinnerVar, q3spinnerVar, q4spinnerVar, q5spinnerVar, form));
+                                                   answerText.setText(text);
 
 
                                                } catch (FileNotFoundException fnfe) {
