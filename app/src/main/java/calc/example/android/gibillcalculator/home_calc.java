@@ -2,6 +2,7 @@ package calc.example.android.gibillcalculator;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.AssetManager;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,6 +28,9 @@ public class home_calc extends AppCompatActivity {
     EditText q1Edit;
     ImageButton imageButton2;
     TextView answerText;
+    InputStream is;
+    InputStream is2;
+    InputStream is3;
 
 
     public void addListenerOnImageButton() {
@@ -52,6 +56,15 @@ public class home_calc extends AppCompatActivity {
         setContentView(R.layout.activity_home_calc);
         setTitle("Gi Bill Calculator");
         addListenerOnImageButton();
+        try {
+            AssetManager assetManager = getAssets();
+            is = getAssets().open("bahw16.txt");
+            is2 = getAssets().open("mhanames16.txt");
+            is3 = getAssets().open("sorted_zipmha16.txt");
+        } catch (Exception e) {
+            System.out.println("exception in assetmanger area");
+        }
+
 
 
         final Button button2 = (Button) findViewById(R.id.calcButton);
@@ -59,11 +72,11 @@ public class home_calc extends AppCompatActivity {
                                        // Perform action on click
                                        public void onClick(View v) {
                                            // this makes the keyboard go away IT WORKS YAY!!!
-                                           InputMethodManager inputManager = (InputMethodManager)
-                                                   getSystemService(Context.INPUT_METHOD_SERVICE);
+                                           //InputMethodManager inputManager = (InputMethodManager)
+                                           //        getSystemService(Context.INPUT_METHOD_SERVICE);
 
-                                           inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
-                                                   InputMethodManager.HIDE_NOT_ALWAYS);
+                                           //inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+                                           //       InputMethodManager.HIDE_NOT_ALWAYS);
 
                                            //I think these ones just assign the variables to the view that they are assigned
 
@@ -90,10 +103,13 @@ public class home_calc extends AppCompatActivity {
 
                                                try {
                                                    Zipcalc zipcalculation = new Zipcalc();
-                                                   String mha = zipcalculation.readZiptoMha(q1EditVar);
-                                                   String bah = zipcalculation.readBahAmount(mha);
+                                                   String mha = zipcalculation.readZiptoMha(q1EditVar, is2);
+                                                   String bah = zipcalculation.readBahAmount(mha, is);
+                                                   System.out.println(mha);
+                                                   System.out.println(bah);
+                                                   ////////////////////////////////////////
                                                    double bahNumber = Double.parseDouble(bah);
-                                               BahCalc bahPrinttoScreen = new BahCalc();
+                                                   BahCalc bahPrinttoScreen = new BahCalc();
                                                    bahPrinttoScreen.calc(bahNumber, q2spinnerVar, q3spinnerVar, q4spinnerVar, q5spinnerVar, form, answerText);
 
 
