@@ -103,14 +103,14 @@
             android:onClick="calc"
             android:text="@string/calculate" />
 
-        <TextView
+        <!--<TextView
             android:id="@+id/amount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/activity_vertical_margin"
             android:gravity="center_horizontal"
             android:text="$0.00"
-            android:textSize="50sp" />
+            android:textSize="50sp" />-->
 
     </LinearLayout>
 

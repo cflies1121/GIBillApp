@@ -1,6 +1,8 @@
 package calc.example.android.gibillcalculator;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.net.Uri;
@@ -27,10 +29,11 @@ public class home_calc extends AppCompatActivity {
 
     EditText q1Edit;
     ImageButton imageButton2;
-    TextView answerText;
+    //TextView answerText;
     InputStream is;
     InputStream is2;
     InputStream is3;
+    String answer;
 
 
    /* public void addListenerOnImageButton() {
@@ -66,9 +69,9 @@ public class home_calc extends AppCompatActivity {
                                        public void onClick(View v) {
                                            try {
                                                AssetManager assetManager = getAssets();
-                                               is = getAssets().open("bahw16.txt");
+                                               is = getAssets().open("bahw15.txt");
                                                //is2 = getAssets().open("mhanames16.txt");
-                                               is3 = getAssets().open("sorted_zipmha16.txt");
+                                               is3 = getAssets().open("sorted_zipmha15.txt");
                                            } catch (Exception e) {
                                                System.out.println("exception in assetmanger area");
                                            }
@@ -84,7 +87,7 @@ public class home_calc extends AppCompatActivity {
 
                                            q1Edit = (EditText) findViewById(R.id.bah);
 
-                                           answerText = (TextView) findViewById(R.id.amount);
+                                           //answerText = (TextView) findViewById(R.id.amount);
 
                                            try {
                                                //all of the int's are just changing the spinners and edit texts to values that java can understand. q3spinner has to be a float.
@@ -113,8 +116,8 @@ public class home_calc extends AppCompatActivity {
                                                    double bahNumber = Double.parseDouble(bah);
                                                    BahCalc bahPrinttoScreen = new BahCalc();
                                                    //// turns the calculation into text then applies that text to answer text
-                                                   String text = (bahPrinttoScreen.calc(bahNumber, q2spinnerVar, q3spinnerVar, q4spinnerVar, q5spinnerVar, form));
-                                                   answerText.setText(text);
+                                                   answer = (bahPrinttoScreen.calc(bahNumber, q2spinnerVar, q3spinnerVar, q4spinnerVar, q5spinnerVar, form));
+                                                   //answerText.setText(text);
 
 
                                                } catch (FileNotFoundException fnfe) {
@@ -122,8 +125,21 @@ public class home_calc extends AppCompatActivity {
                                                    fnfe.printStackTrace();
                                                }
                                            } catch (NumberFormatException nfe) {
-                                               answerText.setText("Answer all Questions");
+                                               //answerText.setText("Answer all Questions");
+                                               answer = "Answer all Questions";
                                            }
+                                           //////////// alert button instead of putting at the bottom of the screen
+                                           AlertDialog alertDialog = new AlertDialog.Builder(home_calc.this).create();
+                                           alertDialog.setTitle("Amount");
+                                           alertDialog.setMessage(answer);
+                                           alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                                                   new DialogInterface.OnClickListener() {
+                                                       public void onClick(DialogInterface dialog, int which) {
+                                                           dialog.dismiss();
+                                                       }
+                                                   });
+                                           alertDialog.show();
+
                                        }
                                    }
 
