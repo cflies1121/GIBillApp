@@ -11,7 +11,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="reset">Reset Calculations.</string>
     <string name="instructions">Please make the appropriate selections. All fields must be filled.</string>
-    <string name="q1">What is the Bah for the schools zip code?</string>
+    <string name="q1">What is the schools zip code?</string>
     <string name="q2">How many credits do you plan on taking?</string>
     <string name="numbcredprompt">How many credits do you plan on taking?</string>
     <string name="c12">1</string>
@@ -51,6 +51,7 @@
     <string name="weeks">How many weeks is your term?</string>
     <string name="calculate">Calculate!</string>
     <string name="banner_ad_unit_id">ca-app-pub-3466818873118548/4553771311</string>
+    <string name="q0">Select an academic term:</string>
 
 
 </resources>

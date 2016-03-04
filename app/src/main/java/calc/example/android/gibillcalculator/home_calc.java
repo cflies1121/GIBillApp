@@ -30,9 +30,11 @@ public class home_calc extends AppCompatActivity {
     EditText q1Edit;
     ImageButton imageButton2;
     //TextView answerText;
-    InputStream is;
+    InputStream bahw15;
     InputStream is2;
-    InputStream is3;
+    InputStream zipmha15;
+    InputStream bahw16;
+    InputStream zipmha16;
     String answer;
 
 
@@ -69,9 +71,11 @@ public class home_calc extends AppCompatActivity {
                                        public void onClick(View v) {
                                            try {
                                                AssetManager assetManager = getAssets();
-                                               is = getAssets().open("bahw15.txt");
+                                               bahw16 = getAssets().open("bahw16.txt");
+                                               zipmha16 = getAssets().open("sorted_zipmha16.txt");
+                                               bahw15 = getAssets().open("bahw15.txt");
                                                //is2 = getAssets().open("mhanames16.txt");
-                                               is3 = getAssets().open("sorted_zipmha15.txt");
+                                               zipmha15 = getAssets().open("sorted_zipmha15.txt");
                                            } catch (Exception e) {
                                                System.out.println("exception in assetmanger area");
                                            }
@@ -97,19 +101,27 @@ public class home_calc extends AppCompatActivity {
                                                Spinner q5spinner = (Spinner) findViewById(R.id.weeksspinner);
                                                int q5spinnerVar = Integer.parseInt(q5spinner.getSelectedItem().toString());//change to a string
                                                Spinner q2spinner = (Spinner) findViewById(R.id.spinnerCredits);
-                                               long q2spinnerVar = Long.parseLong(q2spinner.getSelectedItem().toString());
+                                               float q2spinnerVar = Float.parseFloat(q2spinner.getSelectedItem().toString());
                                                Spinner q3spinner = (Spinner) findViewById(R.id.spinnerPercent);
                                                float q3spinnerVar = Float.parseFloat(q3spinner.getSelectedItem().toString());
                                                Spinner q4spinner = (Spinner) findViewById(R.id.Spinnercl);
                                                String q4spinnerVar = q4spinner.getSelectedItem().toString();
+                                               Spinner q0Spinner = (Spinner) findViewById(R.id.q0Spinner);
+                                               String q0SpinnerVar = q0Spinner.getSelectedItem().toString();
 
                                                // insert a spinner for q5edit question to make app better//done
                                                DecimalFormat form = new DecimalFormat("0.00");
+                                               String mha, bah;
 
                                                try {
                                                    Zipcalc zipcalculation = new Zipcalc();
-                                                   String mha = zipcalculation.readZiptoMha(q1EditVar, is3);
-                                                   String bah = zipcalculation.readBahAmount(mha, is);
+                                                   if (q0SpinnerVar.equals("Spring 2016") || q0SpinnerVar.equals("Summer 2016")) {
+                                                       mha = zipcalculation.readZiptoMha(q1EditVar, zipmha15);
+                                                       bah = zipcalculation.readBahAmount(mha, bahw15);
+                                                   } else {
+                                                       mha = zipcalculation.readZiptoMha(q1EditVar, zipmha16);
+                                                       bah = zipcalculation.readBahAmount(mha, bahw16);
+                                                   }
                                                    //System.out.println(mha); debuging
                                                    // System.out.println(bah); debuging
                                                    ////////////////////////////////////////

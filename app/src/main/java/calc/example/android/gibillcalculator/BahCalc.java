@@ -8,7 +8,7 @@ import java.text.DecimalFormat;
  */
 public class BahCalc {
 
-    public String calc(double q1EditVar, long q2spinnerVar, float q3spinnerVar, String q4spinnerVar, int q5spinnerVar, DecimalFormat form) {
+    public String calc(double q1EditVar, float q2spinnerVar, float q3spinnerVar, String q4spinnerVar, int q5spinnerVar, DecimalFormat form) {
         //source for semester equation http://www.sunyacc.edu/sites/default/files/images/va_semester_equivalency_hours_chart.pdf
         String text = "";
         if (q1EditVar == -100) {

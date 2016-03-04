@@ -16,6 +16,16 @@
 
 
     </string-array>
+
+    <string-array name="years">
+        <item>Spring 2016</item>
+        <item>Summer 2016</item>
+        <item>Fall 2016</item>
+        <item>Winter 2016/17</item>
+        <item>Spring 2017</item>
+        <item>Summer 2017</item>
+
+    </string-array>
     <string-array name="percentprompt">
         <item>@string/p1</item>
         <item>@string/p2</item>
