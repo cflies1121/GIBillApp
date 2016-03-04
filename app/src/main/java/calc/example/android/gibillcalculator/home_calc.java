@@ -67,7 +67,7 @@ public class home_calc extends AppCompatActivity {
                                            try {
                                                AssetManager assetManager = getAssets();
                                                is = getAssets().open("bahw16.txt");
-                                               is2 = getAssets().open("mhanames16.txt");
+                                               //is2 = getAssets().open("mhanames16.txt");
                                                is3 = getAssets().open("sorted_zipmha16.txt");
                                            } catch (Exception e) {
                                                System.out.println("exception in assetmanger area");

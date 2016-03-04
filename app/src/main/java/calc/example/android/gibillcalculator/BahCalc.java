@@ -1,6 +1,5 @@
 package calc.example.android.gibillcalculator;
 
-import android.widget.TextView;
 
 import java.text.DecimalFormat;
 
