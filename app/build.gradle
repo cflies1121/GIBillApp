@@ -8,8 +8,8 @@ android {
         applicationId "calc2.example.android.gibillcalculator"
         minSdkVersion 15
         targetSdkVersion 23
-        versionCode 8
-        versionName "2.03"
+        versionCode 10
+        versionName "2.05"
     }
     buildTypes {
         release {

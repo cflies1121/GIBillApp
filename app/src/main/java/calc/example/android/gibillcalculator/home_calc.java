@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.view.inputmethod.InputMethodManager;
@@ -36,6 +37,9 @@ public class home_calc extends AppCompatActivity {
     InputStream bahw16;
     InputStream zipmha16;
     String answer;
+    ProgressBar progressBar;
+
+
 
 
    /* public void addListenerOnImageButton() {
@@ -61,6 +65,8 @@ public class home_calc extends AppCompatActivity {
         setContentView(R.layout.activity_home_calc);
         setTitle("Gi Bill Calculator");
         //addListenerOnImageButton();
+        progressBar = (ProgressBar) findViewById(R.id.progress_bar);
+        progressBar.setVisibility(View.GONE);
 
 
 
@@ -69,6 +75,7 @@ public class home_calc extends AppCompatActivity {
         button2.setOnClickListener(new View.OnClickListener() {
                                        // Perform action on click
                                        public void onClick(View v) {
+                                           progressBar.setVisibility(View.VISIBLE);
                                            try {
                                                AssetManager assetManager = getAssets();
                                                bahw16 = getAssets().open("bahw16.txt");
@@ -108,6 +115,7 @@ public class home_calc extends AppCompatActivity {
                                                String q4spinnerVar = q4spinner.getSelectedItem().toString();
                                                Spinner q0Spinner = (Spinner) findViewById(R.id.q0Spinner);
                                                String q0SpinnerVar = q0Spinner.getSelectedItem().toString();
+                                               //q5spinner.setVisibility(View.INVISIBLE);////if you wanted something invisible this is how you do it
 
                                                // insert a spinner for q5edit question to make app better//done
                                                DecimalFormat form = new DecimalFormat("0.00");
@@ -140,6 +148,8 @@ public class home_calc extends AppCompatActivity {
                                                //answerText.setText("Answer all Questions");
                                                answer = "Answer all Questions";
                                            }
+                                           progressBar.setVisibility(View.GONE);
+
                                            //////////// alert button instead of putting at the bottom of the screen
                                            AlertDialog alertDialog = new AlertDialog.Builder(home_calc.this).create();
                                            alertDialog.setTitle("Amount");
@@ -148,9 +158,12 @@ public class home_calc extends AppCompatActivity {
                                                    new DialogInterface.OnClickListener() {
                                                        public void onClick(DialogInterface dialog, int which) {
                                                            dialog.dismiss();
+
+
                                                        }
                                                    });
                                            alertDialog.show();
+
 
                                        }
                                    }
