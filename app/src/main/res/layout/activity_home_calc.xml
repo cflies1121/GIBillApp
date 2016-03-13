@@ -13,14 +13,14 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- <ImageButton
+        <ImageButton
              android:id="@+id/uberbutton"
              android:layout_width="fill_parent"
 
              android:layout_height="120sp"
 
              android:layout_marginBottom="@dimen/activity_vertical_margin"
-             android:background="@drawable/uberad" />-->
+            android:background="@drawable/uberad" />
 
         <TextView
             android:id="@+id/TextViewTitle"

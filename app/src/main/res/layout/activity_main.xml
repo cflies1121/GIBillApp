@@ -1,5 +1,4 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
 
     android:layout_width="match_parent"
@@ -42,13 +41,13 @@
         android:onClick="onClick"
         android:text="Accept/Enter" />
 
-    <!--<ImageButton-->
-    <!--android:id="@+id/lyftbutton"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="0sp"-->
-    <!--android:layout_weight="1.5"-->
-    <!--android:background="@drawable/lyftaddriver"-->
-    <!--android:scaleType="fitXY" />-->
+    <ImageButton
+        android:id="@+id/lyftbutton"
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        android:layout_weight="1.5"
+        android:background="@drawable/lyftaddriver"
+        android:scaleType="fitXY" />
 
 
 </LinearLayout>

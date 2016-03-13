@@ -1,28 +1,22 @@
 package calc.example.android.gibillcalculator;
 
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
-import android.widget.TextView;
-import android.view.inputmethod.InputMethodManager;
-
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.text.DecimalFormat;
-import java.util.List;
 
 
 public class home_calc extends AppCompatActivity {
@@ -40,9 +34,7 @@ public class home_calc extends AppCompatActivity {
     ProgressBar progressBar;
 
 
-
-
-   /* public void addListenerOnImageButton() {
+    public void addListenerOnImageButton() {
 
         imageButton2 = (ImageButton) findViewById(R.id.uberbutton);
         imageButton2.setOnClickListener(new View.OnClickListener() {
@@ -57,14 +49,14 @@ public class home_calc extends AppCompatActivity {
 
         });
 
-    }*/
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_calc);
         setTitle("Gi Bill Calculator");
-        //addListenerOnImageButton();
+        addListenerOnImageButton();
         progressBar = (ProgressBar) findViewById(R.id.progress_bar);
         progressBar.setVisibility(View.GONE);
 
